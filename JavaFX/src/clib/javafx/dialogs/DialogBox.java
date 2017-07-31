@@ -40,7 +40,6 @@ class DialogBox
 
     void setIcon(String iconName)
     {
-        UI.image()
         controller.imageView.setImage(new Image(
                 DialogBox.class.getResourceAsStream("/clib/javafx/dialogs/icons/" + iconName)));
     }
