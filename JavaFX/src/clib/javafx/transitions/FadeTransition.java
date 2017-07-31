@@ -15,11 +15,7 @@ public class FadeTransition extends Transition
 
     public FadeTransition(Node node, int duration, double toValue)
     {
-        setCycleDuration(Duration.millis(duration));
-
-        this.node = node;
-        this.fromValue = node.getOpacity();
-        this.diff = toValue - fromValue;
+        this(node, duration, node.getOpacity(), toValue);
     }
 
     public FadeTransition(Node node, int duration, double fromValue, double toValue)
