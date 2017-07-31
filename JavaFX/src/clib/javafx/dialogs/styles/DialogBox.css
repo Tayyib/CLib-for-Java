@@ -1,0 +1,93 @@
+#window
+{
+    -fx-border-width     : 1px;
+    -fx-background-color : white;
+}
+
+.mode-info
+{
+    -fx-border-color : cornflowerblue;
+}
+
+.mode-warning
+{
+    -fx-border-color : gold;
+}
+
+.mode-error
+{
+    -fx-border-color : red;
+}
+
+.gd-button
+{
+    -fx-padding           : 3px 12px 3px 12px;
+    -fx-text-fill         : rgb(45, 45, 45);
+    -fx-border-width      : 1px;
+    -fx-border-color      : lightgray;
+    -fx-border-radius     : 0;
+    -fx-background-radius : 0;
+    -fx-background-insets : 0;
+    -fx-background-color  : white;
+}
+
+.gd-button:hover, .gd-button:focused:hover, .gd-button:focused:pressed
+{
+    -fx-text-fill        : white;
+    -fx-border-color     : rgb(45, 85, 205);
+    -fx-background-color : royalblue;
+}
+
+.gd-button:pressed
+{
+    -fx-effect : dropshadow(three-pass-box, royalblue, 10, 0, 0, 0);
+}
+
+.gd-button:focused
+{
+    -fx-border-color : lightgray lightgray royalblue lightgray;
+}
+
+.tb-button
+{
+    -fx-padding             : 10px;
+    -fx-background-radius   : 0;
+    -fx-border-style        : null;
+    -fx-background-color    : null;
+    -fx-background-position : center;
+    -fx-background-repeat   : no-repeat;
+}
+
+.minimize-button
+{
+    -fx-background-size  : 18px 8px;
+    -fx-background-image : url("../icons/minimize.png");
+}
+
+.minimize-button:hover, .minimize-button:pressed
+{
+    -fx-background-color : royalblue;
+    -fx-background-image : url("../icons/minimize-hover.png");
+}
+
+.minimize-button:pressed
+{
+    -fx-effect : dropshadow(three-pass-box, royalblue, 5, 0, 0, 0);
+}
+
+.close-button
+{
+    -fx-background-size  : 18px;
+    -fx-background-image : url("../icons/close.png");
+}
+
+.close-button:hover, .close-button:pressed
+{
+    -fx-background-color : rgb(212, 74, 75);
+    -fx-background-image : url("../icons/close-hover.png");
+}
+
+.close-button:pressed
+{
+    -fx-effect : dropshadow(three-pass-box, rgb(212, 74, 74), 5, 0, 0, 0);
+}
