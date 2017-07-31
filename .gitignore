@@ -2,6 +2,9 @@
 .idea
 out
 
+# IDE's files
+*.iml
+
 # Compiled class file
 *.class
 
