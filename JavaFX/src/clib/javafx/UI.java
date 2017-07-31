@@ -6,11 +6,9 @@ import clib.javafx.transitions.FadeTransition;
 import java.io.IOException;
 import java.net.URL;
 
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -31,11 +29,6 @@ public class UI
         catch (IOException e) { e.printStackTrace(); }
 
         return loader;
-    }
-
-    public static Image image(Class Class, String source)
-    {
-        return new Image(Class.getResourceAsStream(source));
     }
 
     public static void switchPane(Pane nextPane, Pane parent)
@@ -59,10 +52,5 @@ public class UI
 
         effect1.setOnFinished(event -> { stage.setScene(nextScene); effect2.play(); });
         effect1.play();
-    }
-
-    public static void inThread(Runnable runnable)
-    {
-        Platform.runLater(runnable);
     }
 }
