@@ -6,14 +6,14 @@ import javafx.scene.Node;
 import javafx.util.Duration;
 
 
-public class FadeEffect extends Transition
+public class FadeTransition extends Transition
 {
     private final Node node;
     private final double fromValue;
     private final double diff;
 
 
-    public FadeEffect(Node node, int duration, double toValue)
+    public FadeTransition(Node node, int duration, double toValue)
     {
         setCycleDuration(Duration.millis(duration));
 
@@ -22,7 +22,7 @@ public class FadeEffect extends Transition
         this.diff = toValue - fromValue;
     }
 
-    public FadeEffect(Node node, int duration, double fromValue, double toValue)
+    public FadeTransition(Node node, int duration, double fromValue, double toValue)
     {
         setCycleDuration(Duration.millis(duration));
 

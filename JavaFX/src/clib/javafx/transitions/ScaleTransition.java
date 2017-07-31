@@ -7,7 +7,7 @@ import javafx.scene.Node;
 import javafx.util.Duration;
 
 
-public class ScaleEffect extends Transition
+public class ScaleTransition extends Transition
 {
     private final Node node;
     private final double fromX;
@@ -18,7 +18,7 @@ public class ScaleEffect extends Transition
     private final double diffZ;
 
 
-    public ScaleEffect(Node node, int duration, @Nullable Double toX, @Nullable Double toY, @Nullable Double toZ)
+    public ScaleTransition(Node node, int duration, @Nullable Double toX, @Nullable Double toY, @Nullable Double toZ)
     {
         setCycleDuration(Duration.millis(duration));
 
