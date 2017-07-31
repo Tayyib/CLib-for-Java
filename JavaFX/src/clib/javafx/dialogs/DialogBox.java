@@ -5,6 +5,7 @@ import clib.javafx.UI;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -39,7 +40,9 @@ class DialogBox
 
     void setIcon(String iconName)
     {
-        controller.imageView.setImage(UI.image(DialogBox.class, "/clib/javafx/dialogs/icons/" + iconName));
+        UI.image()
+        controller.imageView.setImage(new Image(
+                DialogBox.class.getResourceAsStream("/clib/javafx/dialogs/icons/" + iconName)));
     }
 
     void setStyleClass(String mode)
