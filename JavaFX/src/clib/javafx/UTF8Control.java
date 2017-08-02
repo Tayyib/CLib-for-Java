@@ -61,6 +61,10 @@ public class UTF8Control extends ResourceBundle.Control
         {
             try
             {
+                /* Notice!
+                All the codes, except one line, inside this function was copied from required parts of
+                java.util.ResourceBundle.newBundle(). The only line which is changed is the following one.
+                */
                 bundle = new PropertyResourceBundle(new InputStreamReader(stream, StandardCharsets.UTF_8));
             }
             finally
