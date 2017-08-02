@@ -1,4 +1,4 @@
-package main.JavaFX;
+package examples.JavaFX;
 
 
 import clib.javafx.dialogs.ErrorDialogBox;
