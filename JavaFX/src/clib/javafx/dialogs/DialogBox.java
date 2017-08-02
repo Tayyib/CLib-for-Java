@@ -25,7 +25,7 @@ class DialogBox
 
     DialogBox(Stage owner)
     {
-        ResourceBundle bundle = ResourceBundle.getBundle("clib.javafx.dialogs.localization.Buttons", new UTF8Control());
+        ResourceBundle bundle = ResourceBundle.getBundle("clib.javafx.dialogs.l10n.Buttons", new UTF8Control());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/DialogBox.fxml"), bundle);
         Parent root = FXML.load(loader);
 
