@@ -11,7 +11,7 @@ public class WarningDialogBox extends DialogBox
     {
         super(owner);
 
-        controller.buttonYES.setVisible(true);
+        controller.buttonYes.setVisible(true);
         controller.buttonCancel.setVisible(true);
         controller.buttonMinimize.setVisible(false);
         controller.buttonExit.setVisible(true);

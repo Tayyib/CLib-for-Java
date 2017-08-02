@@ -1,10 +1,6 @@
 package clib.javafx.dialogs;
 
 
-import clib.localization.TrFile;
-import clib.localization.TrLoader;
-import static clib.localization.TrLoader.tr;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -26,8 +22,8 @@ public class DialogBoxController implements Initializable
     public Label labelMessage;
     public ImageView imageView;
     public Button buttonOK;
-    public Button buttonNO;
-    public Button buttonYES;
+    public Button buttonNo;
+    public Button buttonYes;
     public Button buttonContinue;
     public Button buttonCancel;
     public Button buttonClose;
@@ -41,25 +37,16 @@ public class DialogBoxController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        TrLoader.load(new TrFile("clib/javafx/dialogs/localization/", "Dialogs"));
-
         buttonOK.managedProperty().bind(buttonOK.visibleProperty());
-        buttonNO.managedProperty().bind(buttonNO.visibleProperty());
-        buttonYES.managedProperty().bind(buttonYES.visibleProperty());
+        buttonNo.managedProperty().bind(buttonNo.visibleProperty());
+        buttonYes.managedProperty().bind(buttonYes.visibleProperty());
         buttonContinue.managedProperty().bind(buttonContinue.visibleProperty());
         buttonCancel.managedProperty().bind(buttonCancel.visibleProperty());
         buttonClose.managedProperty().bind(buttonClose.visibleProperty());
 
-        buttonOK.setText(tr("buttonOK"));
-        buttonNO.setText(tr("buttonNO"));
-        buttonYES.setText(tr("buttonYES"));
-        buttonContinue.setText(tr("buttonContinue"));
-        buttonCancel.setText(tr("buttonCancel"));
-        buttonClose.setText(tr("buttonClose"));
-
         buttonOK.setOnAction(e -> close(ExitCode.OK));
-        buttonNO.setOnAction(e -> close(ExitCode.NO));
-        buttonYES.setOnAction(e -> close(ExitCode.YES));
+        buttonNo.setOnAction(e -> close(ExitCode.NO));
+        buttonYes.setOnAction(e -> close(ExitCode.YES));
         buttonContinue.setOnAction(e -> close(ExitCode.CONTINUE));
         buttonCancel.setOnAction(e -> close(ExitCode.CANCEL));
         buttonClose.setOnAction(e -> close(ExitCode.CLOSE));

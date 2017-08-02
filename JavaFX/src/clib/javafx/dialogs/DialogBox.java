@@ -1,9 +1,13 @@
 package clib.javafx.dialogs;
 
 
-import clib.javafx.UI;
+import clib.javafx.FXML;
+import clib.javafx.UTF8Control;
+
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
@@ -21,12 +25,14 @@ class DialogBox
 
     DialogBox(Stage owner)
     {
-        FXMLLoader loader = UI.loadFXML(DialogBox.class, "/clib/javafx/dialogs/fxml/DialogBox.fxml");
+        ResourceBundle bundle = ResourceBundle.getBundle("clib.javafx.dialogs.localization.Buttons", new UTF8Control());
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/DialogBox.fxml"), bundle);
+        Parent root = FXML.load(loader);
 
-        controller = loader.getController();
+        assert root != null;
+
+        scene = new Scene(root);
         stage = new Stage();
-        scene = new Scene(controller.window);
-        controller.stage = stage;
 
         stage.setScene(scene);
         stage.setResizable(false);
@@ -34,6 +40,9 @@ class DialogBox
         stage.initStyle(StageStyle.UNDECORATED);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.centerOnScreen();
+
+        controller = loader.getController();
+        controller.stage = stage;
     }
 
     // Auto...
@@ -57,7 +66,6 @@ class DialogBox
         return controller.exitCode;
     }
 
-    @SuppressWarnings("WeakerAccess")
     public void close()
     {
         stage.close();

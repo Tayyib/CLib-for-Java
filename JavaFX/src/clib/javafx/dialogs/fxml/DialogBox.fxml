@@ -23,8 +23,9 @@
         </Label>
         <HBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS"/>
         <HBox>
-            <Button fx:id="buttonMinimize" focusTraversable="false" maxHeight="30.0" maxWidth="40.0" minHeight="30.0"
-                    minWidth="40.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0">
+            <Button fx:id="buttonMinimize" focusTraversable="false" maxHeight="30.0" maxWidth="40.0"
+                    minHeight="30.0" minWidth="40.0" mnemonicParsing="false" prefHeight="30.0"
+                    prefWidth="40.0">
                 <styleClass>
                     <String fx:value="tb-button"/>
                     <String fx:value="minimize-button"/>
@@ -33,8 +34,9 @@
                     <Insets top="-1.0"/>
                 </HBox.margin>
             </Button>
-            <Button fx:id="buttonExit" focusTraversable="false" maxHeight="30.0" maxWidth="40.0" minHeight="30.0"
-                    minWidth="40.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0">
+            <Button fx:id="buttonExit" focusTraversable="false" maxHeight="30.0" maxWidth="40.0"
+                    minHeight="30.0" minWidth="40.0" mnemonicParsing="false" prefHeight="30.0"
+                    prefWidth="40.0">
                 <styleClass>
                     <String fx:value="tb-button"/>
                     <String fx:value="close-button"/>
@@ -67,16 +69,16 @@
             <Insets left="20.0" right="20.0"/>
         </padding>
         <Button fx:id="buttonCancel" maxHeight="26.0" minHeight="26.0" mnemonicParsing="false" prefHeight="26.0"
-                styleClass="gd-button" text="Button" visible="false"/>
-        <Button fx:id="buttonContinue" maxHeight="26.0" minHeight="26.0" mnemonicParsing="false" prefHeight="26.0"
-                styleClass="gd-button" text="Button" visible="false"/>
+                styleClass="gd-button" text="%buttonCancel" visible="false"/>
+        <Button fx:id="buttonContinue" maxHeight="26.0" minHeight="26.0" mnemonicParsing="false"
+                prefHeight="26.0" styleClass="gd-button" text="%buttonContinue" visible="false"/>
         <Button fx:id="buttonOK" maxHeight="26.0" minHeight="26.0" mnemonicParsing="false" prefHeight="26.0"
-                styleClass="gd-button" text="Button" visible="false"/>
-        <Button fx:id="buttonYES" maxHeight="26.0" minHeight="26.0" mnemonicParsing="false" prefHeight="26.0"
-                styleClass="gd-button" text="Button" visible="false"/>
-        <Button fx:id="buttonNO" maxHeight="26.0" minHeight="26.0" mnemonicParsing="false" prefHeight="26.0"
-                styleClass="gd-button" text="Button" visible="false"/>
+                styleClass="gd-button" text="%buttonOK" visible="false"/>
+        <Button fx:id="buttonYes" maxHeight="26.0" minHeight="26.0" mnemonicParsing="false" prefHeight="26.0"
+                styleClass="gd-button" text="%buttonYes" visible="false"/>
+        <Button fx:id="buttonNo" maxHeight="26.0" minHeight="26.0" mnemonicParsing="false" prefHeight="26.0"
+                styleClass="gd-button" text="%buttonNo" visible="false"/>
         <Button fx:id="buttonClose" maxHeight="26.0" minHeight="26.0" mnemonicParsing="false" prefHeight="26.0"
-                styleClass="gd-button" text="Button" visible="false"/>
+                styleClass="gd-button" text="%buttonClose" visible="false"/>
     </HBox>
 </VBox>

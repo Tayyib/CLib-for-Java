@@ -4,30 +4,20 @@ package clib.javafx;
 import clib.javafx.transitions.FadeTransition;
 
 import java.io.IOException;
-import java.net.URL;
 
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
-@SuppressWarnings("unused")
-public class UI
+public class FXML
 {
-    public static FXMLLoader loadFXML(Class baseClass, String source)
+    public static Parent load(FXMLLoader fxmlLoader)
     {
-        FXMLLoader loader = new FXMLLoader();
-        URL fxmlURL = baseClass.getResource(source);
-
-        loader.setLocation(fxmlURL);
-        loader.setBuilderFactory(new JavaFXBuilderFactory());
-
-        try { loader.load(fxmlURL.openStream()); }
-        catch (IOException e) { e.printStackTrace(); }
-
-        return loader;
+        try { return fxmlLoader.load(); }
+        catch (IOException e) { e.printStackTrace(); return null; }
     }
 
     public static void switchPane(Pane nextPane, Pane parent)
