@@ -4,10 +4,13 @@ package clib.threading;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.beans.property.SimpleObjectProperty;
+
 
 public abstract class EasyThread extends Thread
 {
     private static final List<EasyThread> ACTIVE_THREADS = new ArrayList<>(0);
+    private SimpleObjectProperty<ThreadExitCode> exitCode = new SimpleObjectProperty<>(ThreadExitCode.UNDEFINED);
     private boolean ableToRunOnMultipleInstances = false;
     private long interval = 0L;
 
@@ -38,10 +41,11 @@ public abstract class EasyThread extends Thread
         try
         {
             while (task() && !isInterrupted()) Thread.sleep(interval);
+            exitCode.set(ThreadExitCode.FINISHED);
         }
         catch (InterruptedException ignored)
         {
-            // ignored
+            exitCode.set(ThreadExitCode.INTERRUPTED);
         }
         finally
         {
@@ -54,6 +58,16 @@ public abstract class EasyThread extends Thread
     public static List<EasyThread> getActiveThreads()
     {
         return ACTIVE_THREADS;
+    }
+
+    public ThreadExitCode getExitCode()
+    {
+        return exitCode.get();
+    }
+
+    public SimpleObjectProperty<ThreadExitCode> exitCodeProperty()
+    {
+        return exitCode;
     }
 
     public boolean isAbleToRunOnMultipleInstances()

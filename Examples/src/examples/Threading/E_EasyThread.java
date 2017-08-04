@@ -2,6 +2,7 @@ package examples.Threading;
 
 
 import clib.threading.EasyThread;
+import clib.threading.ThreadExitCode;
 
 
 public class E_EasyThread
@@ -16,12 +17,28 @@ public class E_EasyThread
             @Override
             public boolean task() throws InterruptedException
             {
-                System.out.println("[Thread 2] Hello! Waiting for 5 seconds...");
-                Thread.sleep(5000);
-                System.out.println("[Thread 2] Process has finished.!");
+                System.out.println("[Thread 2] Sorry! I am to put a limit, you have only 5 seconds!");
+                Thread.sleep(5500);
+                thread1.interrupt();
                 return false;
             }
         };
+
+        thread1.exitCodeProperty().addListener((observable, oldValue, newValue) ->
+        {
+            if (newValue.equals(ThreadExitCode.INTERRUPTED))
+            {
+                System.out.println("[LISTENER 1] has been interrupted by Thread 2 (-_-)");
+            }
+        });
+
+        thread2.exitCodeProperty().addListener((observable, oldValue, newValue) ->
+        {
+            if (newValue.equals(ThreadExitCode.FINISHED))
+            {
+                System.out.println("[LISTENER 2] You've crossed the line!");
+            }
+        });
 
         thread1.start();
         thread2.start();
@@ -31,14 +48,21 @@ public class E_EasyThread
 
 class Thread1 extends EasyThread
 {
-    private int i = 0;
+    private int i = 1;
+
+    @Override
+    public void start()
+    {
+        System.out.println("[THREAD 1] Hello! I'll count up to 10.");
+        super.start();
+    }
 
     @Override
     public boolean task() throws InterruptedException
     {
-        if (i > 7)
+        if (i > 10)
         {
-            System.out.println("[Thread 1] Process has finished.");
+            System.out.println("[Thread 1] That's it.");
             return false;
         }
 
