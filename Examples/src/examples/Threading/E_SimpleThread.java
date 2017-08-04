@@ -1,18 +1,18 @@
 package examples.Threading;
 
 
-import clib.threading.EasyThread;
+import clib.threading.SimpleThread;
 import clib.threading.ThreadExitCode;
 
 
-public class E_EasyThread
+public class E_SimpleThread
 {
     public static void main(String[] args)
     {
         Thread1 thread1 = new Thread1();
         thread1.setInterval(1000);
 
-        EasyThread thread2 = new EasyThread()
+        SimpleThread thread2 = new SimpleThread()
         {
             @Override
             public boolean task() throws InterruptedException
@@ -46,7 +46,7 @@ public class E_EasyThread
 }
 
 
-class Thread1 extends EasyThread
+class Thread1 extends SimpleThread
 {
     private int i = 1;
 

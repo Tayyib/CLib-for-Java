@@ -7,9 +7,9 @@ import java.util.List;
 import javafx.beans.property.SimpleObjectProperty;
 
 
-public abstract class EasyThread extends Thread
+public abstract class SimpleThread extends Thread
 {
-    private static final List<EasyThread> ACTIVE_THREADS = new ArrayList<>(0);
+    private static final List<SimpleThread> ACTIVE_THREADS = new ArrayList<>(0);
     private SimpleObjectProperty<ThreadExitCode> exitCode = new SimpleObjectProperty<>(ThreadExitCode.UNDEFINED);
     private boolean ableToRunOnMultipleInstances = false;
     private long interval = 0L;
@@ -20,7 +20,7 @@ public abstract class EasyThread extends Thread
     {
         if (!ableToRunOnMultipleInstances)
         {
-            for (EasyThread thread : ACTIVE_THREADS)
+            for (SimpleThread thread : ACTIVE_THREADS)
             {
                 if (thread.getClass().equals(this.getClass()))
                 {
@@ -55,7 +55,7 @@ public abstract class EasyThread extends Thread
 
     // Getters
 
-    public static List<EasyThread> getActiveThreads()
+    public static List<SimpleThread> getActiveThreads()
     {
         return ACTIVE_THREADS;
     }
