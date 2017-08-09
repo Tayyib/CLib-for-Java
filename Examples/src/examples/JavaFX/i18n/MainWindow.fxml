@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefWidth="500.0" spacing="25.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="examples.JavaFX.i18n.I18NController">
+    <padding>
+        <Insets bottom="30.0" left="25.0" right="25.0"/>
+    </padding>
+    <VBox alignment="CENTER" spacing="10.0">
+        <padding>
+            <Insets top="25.0"/>
+        </padding>
+        <Label fx:id="labelTitle" text="Label"/>
+        <ComboBox fx:id="comboBox" prefWidth="150.0"/>
+    </VBox>
+    <Label fx:id="label1" text="Label"/>
+    <Label fx:id="label2" text="Label"/>
+</VBox>
