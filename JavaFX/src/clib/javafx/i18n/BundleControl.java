@@ -1,4 +1,4 @@
-package clib.javafx;
+package clib.javafx.i18n;
 
 
 import java.io.IOException;
@@ -15,7 +15,7 @@ import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
 
-public class UTF8Control extends ResourceBundle.Control
+public class BundleControl extends ResourceBundle.Control
 {
     @Override
     public ResourceBundle newBundle(String baseName, Locale locale, String format, ClassLoader loader, boolean reload)
@@ -62,8 +62,7 @@ public class UTF8Control extends ResourceBundle.Control
             try
             {
                 /* Notice!
-                All the codes, except one line, inside this function was copied from required parts of
-                java.util.ResourceBundle.newBundle(). The only line which is changed is the following one.
+                This function's content, except following line, was copied from java.util.ResourceBundle.newBundle().
                 */
                 bundle = new PropertyResourceBundle(new InputStreamReader(stream, StandardCharsets.UTF_8));
             }
