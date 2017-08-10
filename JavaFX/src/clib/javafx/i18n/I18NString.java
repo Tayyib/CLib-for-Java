@@ -35,7 +35,6 @@ public class I18NString extends SimpleStringProperty
         I18N.LOCALEProperty().addListener((observable, oldValue, newValue) ->
         {
             bundle = getBundle(bundleKey);
-            // fixme! set orientation
 
             if (arguments != null) set(key, arguments);
             else set(key);

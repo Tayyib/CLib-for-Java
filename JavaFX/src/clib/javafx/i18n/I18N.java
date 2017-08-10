@@ -1,7 +1,7 @@
 package clib.javafx.i18n;
 
 
-import java.awt.*;
+import java.awt.ComponentOrientation;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -9,24 +9,34 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
 import javafx.collections.ObservableSet;
+import javafx.collections.SetChangeListener;
 import javafx.geometry.NodeOrientation;
-import javafx.scene.Scene;
 
 
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings("unchecked")
 public class I18N
 {
     private static final ObjectProperty<Locale> LOCALE = new SimpleObjectProperty<>();
     private static final SetProperty<Locale> SUPPORTED_LOCALES = new SimpleSetProperty<>();
     private static final MapProperty<String, ResourceBundle> BUNDLES = new SimpleMapProperty<>();
     private static final MapProperty<StringProperty, I18NString> BINDINGS = new SimpleMapProperty<>();
-    // fixme -> bindings.add -> Node for setting orientation in I18NString
+    private static final SetProperty<ObjectProperty<NodeOrientation>> ORIENTATIONS = new SimpleSetProperty<>();
+    private static final ObjectProperty<NodeOrientation> ORIENTATION = new SimpleObjectProperty<>();
 
     static
     {
         SUPPORTED_LOCALES.set(FXCollections.observableSet());
         BUNDLES.set(FXCollections.observableHashMap());
         BINDINGS.set(FXCollections.observableHashMap());
+        ORIENTATIONS.set(FXCollections.observableSet());
+
+        ORIENTATIONS.addListener((SetChangeListener<ObjectProperty<NodeOrientation>>) change ->
+        {
+            if (change.wasAdded()) change.getElementAdded().set(ORIENTATION.get());
+        });
+
+        ORIENTATION.addListener((observable, old, newValue) -> ORIENTATIONS.forEach(p -> p.set(newValue)));
+        LOCALE.addListener((observable, oldValue, newValue) -> ORIENTATION.set(getOrientation(newValue)));
     }
 
     public static void addBundle(String baseName)
@@ -61,18 +71,12 @@ public class I18N
         else I18N.LOCALE.set(locale);
     }
 
-    public static void setOrientation(Scene scene)
+    private static NodeOrientation getOrientation(Locale locale)
     {
-        ComponentOrientation orientation = ComponentOrientation.getOrientation(LOCALE.get());
+        ComponentOrientation awtOrientation = ComponentOrientation.getOrientation(locale);
 
-        if (orientation.equals(ComponentOrientation.RIGHT_TO_LEFT))
-        {
-            scene.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
-        }
-        else
-        {
-            scene.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-        }
+        if (awtOrientation.equals(ComponentOrientation.RIGHT_TO_LEFT)) return NodeOrientation.RIGHT_TO_LEFT;
+        else return NodeOrientation.LEFT_TO_RIGHT;
     }
 
     public static void createBinding(String bundleKey, StringProperty textProperty, String key, Object... args)
@@ -106,5 +110,10 @@ public class I18N
     static ObservableMap<String, ResourceBundle> getBundles()
     {
         return BUNDLES.get();
+    }
+
+    public static ObservableSet<ObjectProperty<NodeOrientation>> getOrientations()
+    {
+        return ORIENTATIONS.get();
     }
 }
