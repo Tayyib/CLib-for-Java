@@ -42,8 +42,6 @@ public class I18NApplication extends Application
         primaryStage.setResizable(false);
 
         I18N.getOrientations().add(primaryStage.getScene().nodeOrientationProperty());
-        I18N.getOrientations().add(primaryStage.getScene().getRoot().nodeOrientationProperty());
-
         I18N.createBinding("App", primaryStage.titleProperty(), "title");
 
         primaryStage.show();
