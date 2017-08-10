@@ -13,6 +13,14 @@ import javafx.collections.SetChangeListener;
 import javafx.geometry.NodeOrientation;
 
 
+/**
+ * <p><b>Warning!</b> There are some reasons to think twice before using this class:</p>
+ * <br>
+ * <p><b>1) NOT tested</b> on complicated apps.</p>
+ * <p><b>2) NOT optimized</b> very well. So, it may use too much memory.</p>
+ * <p><b>3) NOT completed.</b> There are still features to be added.</p>
+ * <p><b>4) NOT documented.</b> You must first read the example codes in the module "Examples"</p>
+ */
 @SuppressWarnings("unchecked")
 public class I18N
 {
