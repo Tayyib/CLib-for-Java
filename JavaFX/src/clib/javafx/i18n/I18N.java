@@ -10,7 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
 import javafx.collections.ObservableSet;
 import javafx.geometry.NodeOrientation;
-import javafx.stage.Stage;
+import javafx.scene.Scene;
 
 
 @SuppressWarnings("WeakerAccess")
@@ -20,6 +20,7 @@ public class I18N
     private static final SetProperty<Locale> SUPPORTED_LOCALES = new SimpleSetProperty<>();
     private static final MapProperty<String, ResourceBundle> BUNDLES = new SimpleMapProperty<>();
     private static final MapProperty<StringProperty, I18NString> BINDINGS = new SimpleMapProperty<>();
+    // fixme -> bindings.add -> Node for setting orientation in I18NString
 
     static
     {
@@ -60,17 +61,17 @@ public class I18N
         else I18N.LOCALE.set(locale);
     }
 
-    public static void setOrientation(Stage primaryStage)
+    public static void setOrientation(Scene scene)
     {
         ComponentOrientation orientation = ComponentOrientation.getOrientation(LOCALE.get());
 
         if (orientation.equals(ComponentOrientation.RIGHT_TO_LEFT))
         {
-            primaryStage.getScene().setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+            scene.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         }
         else
         {
-            primaryStage.getScene().setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
+            scene.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
         }
     }
 

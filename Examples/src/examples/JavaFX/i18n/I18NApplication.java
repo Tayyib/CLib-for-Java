@@ -25,7 +25,7 @@ public class I18NApplication extends Application
         I18N.addBundle("examples.JavaFX.i18n.App");
         I18N.addBundle("examples.JavaFX.i18n.MainWindow");
 
-        I18N.setLocale(Locale.ENGLISH);
+        I18N.setLocale(Locale.ENGLISH, true);
 
         launch(args);
     }
@@ -41,7 +41,7 @@ public class I18NApplication extends Application
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
 
-        I18N.setOrientation(primaryStage);
+        I18N.setOrientation(primaryStage.getScene());
         I18N.createBinding("App", primaryStage.titleProperty(), "title");
 
         primaryStage.show();
