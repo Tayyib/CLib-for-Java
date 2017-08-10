@@ -64,11 +64,11 @@ public class I18N
         setLocale(locale, false);
     }
 
-    public static void setLocale(Locale locale, boolean autoDetect)
+    public static void setLocale(Locale defaultLocale, boolean autoDetect)
     {
         //noinspection StatementWithEmptyBody
         if (autoDetect && getLocaleAutomatically()) ;
-        else I18N.LOCALE.set(locale);
+        else I18N.LOCALE.set(defaultLocale);
     }
 
     private static NodeOrientation getOrientation(Locale locale)

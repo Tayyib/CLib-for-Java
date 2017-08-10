@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
 
 
-public class I18NString extends SimpleStringProperty
+class I18NString extends SimpleStringProperty
 {
     private String key;
     private Object[] arguments;
