@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       prefWidth="500.0" spacing="25.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
@@ -18,5 +17,6 @@
         <ComboBox fx:id="comboBox" prefWidth="150.0"/>
     </VBox>
     <Label fx:id="label1" text="Label"/>
-    <Label fx:id="label2" text="Label"/>
+    <Button fx:id="button" mnemonicParsing="false" onAction="#startRunnable" text="Button"/>
+    <ProgressBar fx:id="progressBar" prefHeight="18.0" prefWidth="389.0" progress="0.0"/>
 </VBox>

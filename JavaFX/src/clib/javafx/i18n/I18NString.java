@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
 
 
-class I18NString extends SimpleStringProperty
+public class I18NString extends SimpleStringProperty
 {
     private String key;
     private Object[] arguments;
@@ -27,7 +27,7 @@ class I18NString extends SimpleStringProperty
             byte[] byteArray = bundle.getString(key).getBytes(StandardCharsets.ISO_8859_1);
             return new String(byteArray, StandardCharsets.UTF_8);
         }
-        catch (MissingResourceException e) { return "i18n::null"; }
+        catch (MissingResourceException e) { return String.format("null::%s", key); }
     }
 
     I18NString(String bundleKey)
