@@ -58,24 +58,24 @@ public class I18NController implements Initializable
         new Thread(() ->
         {
             button.setDisable(true);
-            Platform.runLater(() -> I18N.createBinding("MainWindow", button.textProperty(), "button.loading"));
+            Platform.runLater(() -> I18N.updateBinding(button.textProperty(), "button.loading"));
 
             for (double i = 0; i < 101; i++)
             {
                 double finalI = i;
-                Platform.runLater(() -> I18N.getBindings().get(button.textProperty()).update(finalI));
+                Platform.runLater(() -> I18N.updateArgs(button.textProperty(), finalI));
                 progressBar.setProgress(i / 100);
 
                 try { Thread.sleep(100); }
                 catch (InterruptedException e) { e.printStackTrace(); }
             }
 
-            Platform.runLater(() -> I18N.createBinding("MainWindow", button.textProperty(), "button.completed"));
+            Platform.runLater(() -> I18N.updateBinding(button.textProperty(), "button.completed"));
 
             try { Thread.sleep(2000); }
             catch (InterruptedException e) { e.printStackTrace(); }
 
-            Platform.runLater(() -> I18N.createBinding("MainWindow", button.textProperty(), "button"));
+            Platform.runLater(() -> I18N.updateBinding(button.textProperty(), "button"));
 
             progressBar.setProgress(0);
             button.setDisable(false);

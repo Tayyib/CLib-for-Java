@@ -5,6 +5,7 @@ import java.awt.ComponentOrientation;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import com.sun.istack.internal.NotNull;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
@@ -96,6 +97,20 @@ public class I18N
         else i18NString.set(key);
 
         BINDINGS.put(textProperty, i18NString);
+    }
+
+    public static void updateBinding(StringProperty textProperty, @NotNull String key, Object... args)
+    {
+        I18NString i18NString = BINDINGS.get(textProperty);
+
+        if (key == null) i18NString.update(args);
+        else if (args.length > 0) i18NString.set(key, args);
+        else i18NString.set(key);
+    }
+
+    public static void updateArgs(StringProperty textProperty, Object... args)
+    {
+        updateBinding(textProperty, null, args);
     }
 
     // GETTERS
