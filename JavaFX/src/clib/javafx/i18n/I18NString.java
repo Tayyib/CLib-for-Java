@@ -51,14 +51,14 @@ public class I18NString extends SimpleStringProperty
         super.set(translate(bundle, newValue));
     }
 
-    public void set(String newValue, Object... args)
+    void set(String newValue, Object... args)
     {
         key = newValue;
         arguments = args;
         super.set(String.format(translate(bundle, newValue), args));
     }
 
-    public void update(Object... args)
+    void update(Object... args)
     {
         set(key, args);
     }

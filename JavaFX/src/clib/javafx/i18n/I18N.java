@@ -135,11 +135,6 @@ public class I18N
         return BUNDLES.get();
     }
 
-    public static ObservableMap<StringProperty, I18NString> getBindings()
-    {
-        return BINDINGS.get();
-    }
-
     public static ObservableSet<ObjectProperty<NodeOrientation>> getOrientations()
     {
         return ORIENTATIONS.get();
