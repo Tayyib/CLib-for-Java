@@ -1,4 +1,4 @@
-package clib.javafx.transitions;
+package clib.javafx.animations;
 
 
 import javafx.animation.Transition;
@@ -7,18 +7,18 @@ import javafx.util.Duration;
 
 
 @SuppressWarnings("WeakerAccess")
-public class TypingTransition extends Transition
+public class TypingAnimation extends Transition
 {
     private String text;
     private final Label label;
 
 
-    public TypingTransition(Label label, int duration)
+    public TypingAnimation(Label label, int duration)
     {
         this(label, duration, label.getText());
     }
 
-    public TypingTransition(Label label, int duration, String text)
+    public TypingAnimation(Label label, int duration, String text)
     {
         setCycleDuration(Duration.millis(duration));
 

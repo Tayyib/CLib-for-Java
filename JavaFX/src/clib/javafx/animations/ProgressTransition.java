@@ -1,4 +1,4 @@
-package clib.javafx.transitions;
+package clib.javafx.animations;
 
 
 import javafx.animation.Transition;

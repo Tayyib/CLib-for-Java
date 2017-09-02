@@ -1,7 +1,7 @@
 package clib.javafx;
 
 
-import clib.javafx.transitions.FadeTransition;
+import clib.javafx.animations.FadeTransition;
 
 import java.io.IOException;
 
