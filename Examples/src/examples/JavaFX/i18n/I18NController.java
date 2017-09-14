@@ -48,8 +48,8 @@ public class I18NController implements Initializable
         comboBox.getSelectionModel().selectedIndexProperty().addListener((observable, oldValue, newValue) ->
         {
             if (newValue.equals(0)) I18N.setLocale(new Locale("ar"));
-            if (newValue.equals(1)) I18N.setLocale(new Locale("en"));
-            if (newValue.equals(2)) I18N.setLocale(new Locale("tr"));
+            else if (newValue.equals(1)) I18N.setLocale(new Locale("en"));
+            else if (newValue.equals(2)) I18N.setLocale(new Locale("tr"));
         });
     }
 
