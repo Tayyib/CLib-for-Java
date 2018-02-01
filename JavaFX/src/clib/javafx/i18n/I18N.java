@@ -5,7 +5,7 @@ import java.awt.ComponentOrientation;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.Nullable;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
@@ -99,7 +99,7 @@ public class I18N
         BINDINGS.put(textProperty, i18NString);
     }
 
-    public static void updateBinding(StringProperty textProperty, @NotNull String key, Object... args)
+    public static void updateBinding(StringProperty textProperty, @Nullable String key, Object... args)
     {
         I18NString i18NString = BINDINGS.get(textProperty);
 
