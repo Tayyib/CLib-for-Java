@@ -1,7 +1,7 @@
 package clib.javafx.animations;
 
 
-import com.sun.istack.internal.Nullable;
+import org.jetbrains.annotations.Nullable;
 import javafx.animation.Transition;
 import javafx.scene.Node;
 import javafx.util.Duration;
