@@ -1,6 +1,7 @@
 # Directories
 .idea
 out
+_*
 
 # IDE's files
 *.iml
